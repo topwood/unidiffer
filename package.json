@@ -2,7 +2,7 @@
   "name": "unidiffer",
   "version": "0.0.9",
   "description": "diff with unified diff format handling",
-  "main": "unidiff.js",
+  "main": "dist/unidiffer.js",
   "devDependencies": {
     "@babel/core": "7.0.0",
     "babel-loader": "^8.0.4",
