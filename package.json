@@ -8,7 +8,7 @@
    },
    "repository": {
       "type": "git",
-      "url": "https://github.com/mvoss9000/unidiff.git"
+      "url": "https://github.com/topwood/unidiffer"
    },
    "dependencies": {
       "diff": "^3.5.0"
