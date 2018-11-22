@@ -1,5 +1,8 @@
 # unidiff #
 
+babel unidiff.js --presets es2015 -o dist/unidiffer.js
+babel hunk.js --presets es2015 -o dist/hunk.js
+
 unidiff adds support for creating [unified diff format](https://en.wikipedia.org/wiki/Diff_utility#Unified_format)
 to [jsdiff](https://github.com/kpdecker/jsdiff)
 
