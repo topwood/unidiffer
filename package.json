@@ -4,6 +4,8 @@
   "description": "diff with unified diff format handling",
   "main": "unidiff.js",
   "devDependencies": {
+    "@babel/core": "7.0.0",
+    "babel-loader": "^8.0.4",
     "tape": "^4.4.0"
   },
   "repository": {
@@ -11,6 +13,9 @@
     "url": "git+https://github.com/topwood/unidiffer.git"
   },
   "dependencies": {
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "babel-preset-es2015": "^6.24.1",
+    "commondir": "^1.0.1",
     "diff": "^3.5.0"
   },
   "scripts": {
