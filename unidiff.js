@@ -1,8 +1,7 @@
 'use strict'
 
-var jdiff = require('diff')
-var hunk = require('./hunk')
-
+import * as jdiff from 'diff';
+import * as hunk from './hunk';
 
 // return a change type code for the change (returned from diff.diffLines())
 function changeType(change) {
