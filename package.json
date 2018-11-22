@@ -13,7 +13,6 @@
     "url": "git+https://github.com/topwood/unidiffer.git"
   },
   "dependencies": {
-    "commondir": "^1.0.1",
     "diff": "^3.5.0"
   },
   "scripts": {
