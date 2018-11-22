@@ -65,9 +65,9 @@ Hunk.prototype.toString = function() {
     return "{" + this.shorthand() + "} " + this.unifiedHeader()
 }
 
-const ADDED = '+'
-const REMOVED = '-'
-const UNMODIFIED = 's'
+export const ADDED = '+'
+export const REMOVED = '-'
+export const UNMODIFIED = 's'
 
 function type2unified(type) { return type === 's' ? ' ' : type }
 
@@ -176,7 +176,7 @@ function concatTo(a, b) {
 //                 finish hunk with head portion
 //                 start new hunk with tail portion (iff there are more changes), continue loop 0
 //
-function makeHunks(changes, precontext, postcontext) {
+export function makeHunks(changes, precontext, postcontext) {
 
     //console.log('--------\nmakeHunks(' + [changes2shorthand(changes), precontext, postcontext].join(', ') + ')')
     var ret = []        // completed hunks to return
@@ -232,20 +232,3 @@ function nthIndexOf(s, v, from, n, reverse) {
     }
     return from
 }
-
-// for testing and debugging
-exports.hunk = function(aoff, boff, lchanges) { return new Hunk(aoff, boff, lchanges) }
-exports.linechange = function(type, text) { return new LineChange(type, text)}
-exports.lineChanges = lineChanges
-exports.change2string = change2string
-exports.changes2shorthand = changes2shorthand
-exports.nthIndexOf = nthIndexOf
-
-// main API
-exports.makeHunks = makeHunks
-exports.ADDED = ADDED
-exports.REMOVED = REMOVED
-exports.UNMODIFIED = UNMODIFIED
-
-
-

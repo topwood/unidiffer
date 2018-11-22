@@ -32,7 +32,7 @@ function checkAndAssignTypes(changes) {
 
 // convert an array of results from diff.diffLines() into text in unified diff format.
 // return empty string if there are no changes.
-function formatLines(changes, opt) {
+export function formatLines(changes, opt) {
     checkAndAssignTypes(changes)
     opt = opt || {}
     opt.aname = opt.aname || 'a'
@@ -57,7 +57,7 @@ function formatLines(changes, opt) {
 
 // same as jsdiff.diffLines, but returns empty array when there are no changes (instead of an array with a single
 // unmodified change object)
-function diffLines(a, b, cb) {
+export function diffLines(a, b, cb) {
     a = Array.isArray(a) ? a.join('\n') + '\n' : a
     b = Array.isArray(b) ? b.join('\n') + '\n' : b
     var ret = jdiff.diffLines(a, b, cb)
@@ -68,7 +68,7 @@ function diffLines(a, b, cb) {
     }
 }
 
-function diffAsText(a, b, opt) {
+export function diffAsText(a, b, opt) {
     return formatLines(diffLines(a, b), opt)
 }
 
@@ -83,7 +83,7 @@ function diffAsText(a, b, opt) {
 //         msg - a one-line message that prints upon failure
 //     logFn - function to call with diff output when there are differences (defaults to console.log)
 //
-function assertEqual(actual, expected, okFn, label, logFn) {
+export function assertEqual(actual, expected, okFn, label, logFn) {
     logFn = logFn || console.log
     okFn = okFn.ok || okFn
     var diff = diffAsText(actual, expected, {context: 3, aname: label + " (actual)", bname: label + ' (expected)'})
@@ -94,14 +94,3 @@ function assertEqual(actual, expected, okFn, label, logFn) {
         })
     }
 }
-
-exports.assertEqual = assertEqual
-exports.diffAsText = diffAsText
-exports.formatLines = formatLines
-exports.diffLines = diffLines
-
-Object.keys(jdiff).forEach(function(k) {
-    if(!exports[k]) {
-        exports[k] = jdiff[k]
-    }
-})
